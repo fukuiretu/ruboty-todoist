@@ -12,3 +12,4 @@ module Ruboty
       end
     end
   end
+end
