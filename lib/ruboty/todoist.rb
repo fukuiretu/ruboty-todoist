@@ -1,3 +1,5 @@
 require "ruboty"
 require "ruboty/todoist/version"
 require "ruboty/todoist/client"
+require "ruboty/handlers/todoist"
+require "ruboty/actions/todoist"
