@@ -1,6 +1,6 @@
 module Ruboty
-  module Todoist
-    class HatenaHotentry < Base
+  module Handlers
+    class Todoist < Base
       ARTICLE_FORMAT = "%{content}  due_date: %{due_date}\n"
 
       on /todoist( me)? (?<action>show) (?<status>uncompleted) (?<date>all|today)/,
