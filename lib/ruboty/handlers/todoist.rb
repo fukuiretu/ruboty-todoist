@@ -1,5 +1,5 @@
 module Ruboty
-  module Todist
+  module Todoist
     class HatenaHotentry < Base
       ARTICLE_FORMAT = "%{content}  due_date: %{due_date}\n"
 
