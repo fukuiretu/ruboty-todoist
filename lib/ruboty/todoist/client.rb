@@ -28,11 +28,9 @@ module Ruboty
         end
 
         def resorce_all
-          return @resorce_all if @resorce_all
-
           params = { token: ENV["TODOIST_TOKEN"], seq_no: 0, resource_types: '["all"]' }
           request_url = "#{ENDPOINT}/sync/?#{URI.encode_www_form(params)}"
-          @resorce_all = JSON.parse(open(request_url).read, { symbolize_names: true })
+          JSON.parse(open(request_url).read, { symbolize_names: true })
         end
     end
   end

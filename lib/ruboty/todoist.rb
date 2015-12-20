@@ -1,3 +1,5 @@
+require "active_support"
+require "active_support/core_ext"
 require "ruboty"
 require "ruboty/todoist/version"
 require "ruboty/todoist/client"
