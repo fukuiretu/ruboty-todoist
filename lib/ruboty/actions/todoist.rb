@@ -35,7 +35,6 @@ module Ruboty
 
           due_date = Time.strptime(item[:due_date], "%a %d %b %Y %T")
           now = Time.now
-          message.reply(due_date.between?(now.beginning_of_day, now.tomorrow.beginning_of_day))
           return true unless due_date.between?(now.beginning_of_day, now.tomorrow.beginning_of_day)
 
           false
