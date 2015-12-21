@@ -30,6 +30,7 @@ module Ruboty
         def resorce_all
           params = { token: ENV["TODOIST_TOKEN"], seq_no: 0, resource_types: '["all"]' }
           request_url = "#{ENDPOINT}/sync/?#{URI.encode_www_form(params)}"
+          puts "request_url: #{request_url}"
           JSON.parse(open(request_url).read, { symbolize_names: true })
         end
     end
