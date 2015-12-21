@@ -22,27 +22,13 @@ module Ruboty
         end
 
         def items
-          result = client.resource_items
-          if message[:date] == 'today'
-            result.reject! { |_| today?(_) }
-          end
-
-          result
-        end
-
-        def today?(item)
-          return true if item[:due_date].blank?
-
-          due_date = Time.strptime(item[:due_date], "%a %d %b %Y %T")
-          now = Time.now
-          return true unless due_date.between?(now.beginning_of_day, now.tomorrow.beginning_of_day)
-
-          false
+          Ruboty::Todoist::Resorces::Item.fetch_with_filter { |_| _.checked == 0 && _.due_today? }
         end
 
         def format(resources)
           ''.tap do |_|
             _ << "```"
+            _ << "\n"
             _ << "今日までが期限のタスク (#{resources.count}件)"
             _ << "\n"
             resources.each do |resource|
