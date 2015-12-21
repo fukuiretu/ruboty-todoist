@@ -1,8 +1,6 @@
 module Ruboty
   module Handlers
     class Todoist < Base
-      ARTICLE_FORMAT = "%{content}  due_date: %{due_date}\n"
-
       on(
         /todoist items (?<status>uncompleted) (?<date>all|today)/,
         name: "items",
