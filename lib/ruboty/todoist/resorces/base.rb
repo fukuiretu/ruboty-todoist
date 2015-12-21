@@ -19,22 +19,14 @@ module Ruboty
               resource_types: '["all"]'
             }
           )
+          return {} if response.blank?
+          
           JSON.parse(response.body, { symbolize_names: true })
         end
 
-        private
-
-          def self.client
-            @client ||= Ruboty::Http::Client.new(endpoint: endpoint)
-          end
-
-          def self.endpoint
-            ENDPOINT
-          end
-
-          def self.token
-            ENV["TODOIST_TOKEN"]
-          end
+        def self.token
+          ENV["TODOIST_TOKEN"]
+        end
       end
     end
   end
