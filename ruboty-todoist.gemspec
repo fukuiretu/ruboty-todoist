@@ -30,5 +30,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "dotenv"
   spec.add_dependency "activesupport"
   spec.add_dependency "wannabe_bool"
-  spec.add_dependency "faraday"
+  spec.add_dependency "http"
 end

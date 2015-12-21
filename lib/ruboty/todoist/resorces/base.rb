@@ -11,8 +11,8 @@ module Ruboty
         end
 
         def self.resorce_all
-          response = client.get(
-            path: 'sync',
+          response = HTTP.get(
+            "#{ENDPOINT}/sync",
             params: {
               token: token,
               seq_no: 0,

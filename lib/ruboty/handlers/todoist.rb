@@ -3,12 +3,24 @@ module Ruboty
     class Todoist < Base
       ARTICLE_FORMAT = "%{content}  due_date: %{due_date}\n"
 
-      on /todoist (?<action>items) (?<status>uncompleted) (?<date>all|today)/,
-      name: "todoist",
-      description: "Todoist items Controller"
+      on(
+        /todoist items (?<status>uncompleted) (?<date>all|today)/,
+        name: "items",
+        description: "Todoist items Controller"
+      )
 
-      def todoist(message)
-        Ruboty::Actions::Todoist.new(message).call
+      on(
+        /todoist projects/,
+        name: "projects",
+        description: "Todoist projects Controller"
+      )
+
+      def items(message)
+        Ruboty::Actions::Item.new(message).call
+      end
+
+      def projects(message)
+        Ruboty::Actions::Project.new(message).call
       end
     end
   end

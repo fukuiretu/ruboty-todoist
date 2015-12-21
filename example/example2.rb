@@ -6,6 +6,5 @@ Dotenv.load
 # items = Ruboty::Todoist::Resorces::Item.fetch
 # items.each { |_| pp _.due_date }
 
-items = 
-
-pp items
+projects = Ruboty::Todoist::Resorces::Project.fetch
+pp projects
